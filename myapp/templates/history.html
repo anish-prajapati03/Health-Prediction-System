@@ -1,0 +1,55 @@
+{% extends "parent.html" %}
+
+{% block main %}
+<h2 class="text-center my-4" style="color: #0d6efd; font-weight: bold;">
+  🏥 Medical History
+</h2>
+
+<div class="table-responsive">
+  <table class="table table-hover table-striped table-bordered shadow-lg rounded" 
+         style="width: 95%; margin: auto; border-radius: 12px; overflow: hidden;">
+    <thead class="table-dark text-center">
+      <tr>
+        <th>Id</th>
+        <th>Fever</th>
+        <th>Headache</th>
+        <th>Nausea</th>
+        <th>Vomiting</th>
+        <th>Fatigue</th>
+        <th>Joint Pain</th>
+        <th>Skin Rash</th>
+        <th>Cough</th>
+        <th>Weight Loss</th>
+        <th>Yellow Eyes</th>
+        <th>Disease</th>
+      </tr>
+    </thead>
+    <tbody class="text-center align-middle">
+      {% for h in his %}
+      <tr>
+        <td>{{ h.id }}</td>
+        <td>{{ h.fever }}</td>
+        <td>{{ h.headache }}</td>
+        <td>{{ h.nausea }}</td>
+        <td>{{ h.vomiting }}</td>
+        <td>{{ h.fatigue }}</td>
+        <td>{{ h.joint_pain }}</td>
+        <td>{{ h.skin_rash }}</td>
+        <td>{{ h.cough }}</td>
+        <td>{{ h.weight_loss }}</td>
+        <td>{{ h.yellow_eyes }}</td>
+        <td>
+          <span class="badge 
+            {% if h.res == 'Malaria' %} bg-danger
+            {% elif h.res == 'Typhoid' %} bg-warning
+            {% elif h.res == 'Jaundice' %} bg-primary
+            {% else %} bg-success {% endif %}">
+            {{ h.res }}
+          </span>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock main %}

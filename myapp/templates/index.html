@@ -1,0 +1,18 @@
+{% extends "parent.html" %}
+{% load static %}
+
+{% block main %}
+<div class="container mt-5 text-center">
+    <h1 class="display-4">Welcome to Disease Prediction System</h1>
+    <p class="lead">Predict possible diseases based on symptoms using Machine Learning.</p>
+    <hr class="my-4">
+
+    <img src="{% static 'images/img.jpg' %}" class="img-fluid rounded" alt="Health Image" width="400">
+
+    <div class="mt-4">
+        <a href="{% url 'prediction' %}" class="btn btn-primary btn-lg mx-2">Start Prediction</a>
+        <a href="{% url 'history' %}" class="btn btn-secondary btn-lg mx-2">View History</a>
+    </div>
+</div>
+
+{% endblock main %}

@@ -1,0 +1,145 @@
+{% extends "parent.html" %}
+{% block main %}
+
+<h2 style="color: #007BFF; text-align: center; font-weight: bold; margin-bottom: 20px;">
+  🔮 Disease Prediction
+</h2>
+
+{% if res %}
+  <h4 style="color: #dc3545; text-align: center; font-weight: bold; margin-bottom: 20px;">
+    Predicted Disease: {{res}}
+  </h4>
+{% endif %}
+
+<form class="form-group" method="post" style="animation: fadeIn 1s;">
+  {% csrf_token %}
+  <table class="table table-bordered shadow-lg rounded" style="width: 80%; margin: auto; background: #f8f9fa; border-radius: 10px; overflow: hidden;">
+    <tbody>
+      <tr>
+        <td>Fever</td>
+        <td>
+          <select class="form-select cool-select" name="fever">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+        </td>
+        <td>Headache</td>
+        <td>
+          <select class="form-select cool-select" name="headache">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Nausea</td>
+        <td>
+          <select class="form-select cool-select" name="nausea">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+        </td>
+        <td>Vomiting</td>
+        <td>
+          <select class="form-select cool-select" name="vomiting">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Fatigue</td>
+        <td>
+          <select class="form-select cool-select" name="fatigue">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+        </td>
+        <td>Joint Pain</td>
+        <td>
+          <select class="form-select cool-select" name="joint_pain">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Skin Rash</td>
+        <td>
+          <select class="form-select cool-select" name="skin_rash">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+        </td>
+        <td>Cough</td>
+        <td>
+          <select class="form-select cool-select" name="cough">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Weight Loss</td>
+        <td>
+          <select class="form-select cool-select" name="weight_loss">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+        </td>
+        <td>Yellow Eyes</td>
+        <td>
+          <select class="form-select cool-select" name="yellow_eyes">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4" style="text-align: center; padding-top: 15px;">
+          <button type="submit" class="btn btn-success cool-btn">Predict</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+
+<style>
+  /* Fade in effect */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Cool hover select */
+  .cool-select {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+  }
+  .cool-select:hover {
+    border-color: #007BFF;
+    box-shadow: 0 0 8px rgba(0,123,255,0.3);
+  }
+
+  /* Predict button cool effect */
+  .cool-btn {
+    padding: 10px 25px;
+    font-size: 16px;
+    border-radius: 25px;
+    transition: all 0.3s ease-in-out;
+  }
+  .cool-btn:hover {
+    background-color: #28a745;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(40,167,69,0.5);
+  }
+
+  /* Table hover rows */
+  table tr:hover {
+    background-color: #e9f5ff !important;
+    transition: background 0.3s ease-in-out;
+  }
+</style>
+
+{% endblock main %}
